@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanjana | AI Gaming Portfolio</title>
+
+  <!-- 🎮 GAMING FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Orbitron',sans-serif;
+      color:#eaf2ff;
+      background:#020814;
+    }
+
+    /* 🎥 BACKGROUND VIDEO */
+    #bgVideo{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      z-index:-3;
+      filter:saturate(1.1) contrast(1.05);
+    }
+
+    .video-overlay{
+      position:fixed; inset:0;
+      background:linear-gradient(120deg,
+        rgba(5,15,35,.65),
+        rgba(10,26,47,.45),
+        rgba(31,78,140,.35)
+      );
+      z-index:-2;
+      animation:hue 10s linear infinite;
+    }
+    @keyframes hue{to{filter:hue-rotate(360deg)}}
+
+    .scanlines{
+      position:fixed; inset:0;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.03),
+        rgba(255,255,255,.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode:overlay;
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    /* 🧭 NAVBAR */
+    .navbar{
+      position:sticky; top:0; z-index:10;
+      background:rgba(5,15,35,.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #1F4E8C;
+      padding:12px; text-align:center;
+    }
+    .navbar a{
+      color:#fff; text-decoration:none; margin:0 14px;
+      letter-spacing:2px; text-transform:uppercase;
+      text-shadow:0 0 10px #1F4E8C;
+    }
+
+    /* 🧠 HERO */
+    .hero{
+      text-align:center;
+      padding:110px 20px 80px;
+    }
+    .hero h1{
+      font-size:40px;
+      color:#fff;
+      text-shadow:
+        0 0 8px #fff,
+        0 0 18px #1F4E8C,
+        0 0 40px #0A1A2F;
+      letter-spacing:3px;
+    }
+    #typing{
+      font-size:18px;
+      letter-spacing:2px;
+      color:#cfe3ff;
+    }
+
+    /* 🧊 GLASS CARD */
+    .card{
+      width:85%; max-width:900px;
+      margin:32px auto; padding:26px;
+      background:rgba(10,20,45,.55);
+      backdrop-filter:blur(14px);
+      border-radius:14px;
+      border:1px solid rgba(31,78,140,.6);
+      box-shadow:0 0 25px rgba(31,78,140,.35);
+    }
+
+    h2{
+      margin-top:0;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      text-shadow:0 0 12px #1F4E8C;
+    }
+
+    /* ✨ REVEAL */
+    .reveal{opacity:0; transform:translateY(40px); transition:.8s}
+    .reveal.active{opacity:1; transform:none}
+
+    /* ===== TOP SKILLS LIST ===== */
+    ul{
+      list-style:none;
+      padding-left:0;
+    }
+    ul li{
+      padding:8px 0;
+      border-bottom:1px solid rgba(31,78,140,.4);
+      letter-spacing:1.5px;
+    }
+
+    /* ===== SKILL CARDS ===== */
+    .skill-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+    .skill-card{
+      padding:20px;
+      text-align:center;
+      border:1px solid #1F4E8C;
+      border-radius:14px;
+      background:rgba(10,20,45,.6);
+      box-shadow:0 0 20px rgba(31,78,140,.35);
+      transition:.3s;
+    }
+    .skill-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 35px rgba(31,78,140,.7);
+    }
+    .skill-card span{
+      font-size:28px;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    /* ===== CERTIFICATION BADGES ===== */
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+    .badge{
+      padding:10px 18px;
+      border-radius:20px;
+      border:1px solid #1F4E8C;
+      background:rgba(10,20,45,.6);
+      box-shadow:0 0 15px rgba(31,78,140,.6);
+      letter-spacing:1px;
+    }
+
+    footer{
+      text-align:center;
+      padding:22px;
+      letter-spacing:2px;
+      color:#9fc7ff;
+    }
+
+    @media(max-width:768px){
+      .hero h1{font-size:28px}
+      #typing{font-size:14px}
+      .card{width:92%}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO + OVERLAYS -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="#about-home">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <h1>Hi 👋 I am Sanjana Kumari</h1>
+    <div id="typing"></div>
+  </section>
+
+  <!-- ABOUT (HOME PAGE) -->
+  <div class="card reveal" id="about-home">
+    <h2>Professional Summary</h2>
+    <p>
+      Results-driven <b>B.E. Computer Science (AI & ML)</b> undergraduate with
+      hands-on experience in building <b>machine learning-powered</b> and
+      <b>full-stack web applications</b>. Passionate about data-driven
+      problem-solving, AI research, and futuristic technologies.
+    </p>
+  </div>
+
+  <!-- TOP SKILLS -->
+  <div class="card reveal">
+    <h2>Top Skills</h2>
+    <ul>
+      <li>✔ Machine Learning & Model Development</li>
+      <li>✔ Data Science, EDA & Data Visualization</li>
+      <li>✔ Python Programming</li>
+      <li>✔ Full-Stack Web Development</li>
+      <li>✔ API Integration & Backend Logic</li>
+      <li>✔ Problem Solving & Analytical Thinking</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS GRID -->
+  <div class="card reveal" id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-card"><span>🧠</span>Machine Learning</div>
+      <div class="skill-card"><span>📊</span>Data Science & EDA</div>
+      <div class="skill-card"><span>🐍</span>Python</div>
+      <div class="skill-card"><span>🌐</span>HTML, CSS, JavaScript</div>
+      <div class="skill-card"><span>🧪</span>Model Evaluation</div>
+      <div class="skill-card"><span>⚙️</span>Flask & APIs</div>
+      <div class="skill-card"><span>📈</span>Data Visualization</div>
+      <div class="skill-card"><span>🧠</span>AI Problem Solving</div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="card reveal" id="certifications">
+    <h2>Certifications</h2>
+    <div class="badges">
+      <div class="badge">📜 Machine Learning Certification</div>
+      <div class="badge">📜 Data Science Certification</div>
+      <div class="badge">📜 Python Programming</div>
+      <div class="badge">📜 AI & ML Foundations</div>
+      <div class="badge">📜 Web Development</div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="card reveal" id="projects">
+    <h2>Projects</h2>
+    <p>🎮 AI Expense Tracker – ML-powered finance app</p>
+    <p>🧠 ML Research & Data Analysis Project</p>
+    <p>🌐 API-based News Application</p>
+    <p>🤖 AI Chatbot System</p>
+  </div>
+
+  <footer>© 2026 SANJANA KUMARI | AI GAMING PORTFOLIO</footer>
+
+  <!-- JS -->
+  <script>
+    const text="AI/ML ENGINEER | DATA SCIENCE | FUTURE TECH";
+    let i=0;
+    (function t(){
+      if(i<text.length){
+        typing.textContent+=text[i++];
+        setTimeout(t,80);
+      }
+    })();
+
+    function reveal(){
+      document.querySelectorAll('.reveal').forEach(r=>{
+        if(r.getBoundingClientRect().top < innerHeight-100){
+          r.classList.add('active');
+        }
+      });
+    }
+    addEventListener('scroll',reveal);
+    reveal();
+  </script>
+
+</body>
+</html>
