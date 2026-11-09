@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Sanjana Kumari</title>
+
+  <!-- 🎮 GAMING FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Orbitron',sans-serif;
+      color:#eaf2ff;
+      background:#020814;
+    }
+
+    /* 🎥 BACKGROUND VIDEO */
+    #bgVideo{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      z-index:-3;
+      filter:saturate(1.1) contrast(1.05);
+    }
+
+    /* Animated gradient overlay */
+    .video-overlay{
+      position:fixed; inset:0;
+      background:linear-gradient(120deg,
+        rgba(5,15,35,.65),
+        rgba(10,26,47,.45),
+        rgba(31,78,140,.35)
+      );
+      z-index:-2;
+      animation:hue 10s linear infinite;
+    }
+    @keyframes hue{to{filter:hue-rotate(360deg)}}
+
+    /* Subtle scanlines */
+    .scanlines{
+      position:fixed; inset:0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.03),
+        rgba(255,255,255,.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode:overlay;
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    /* 🧭 NAVBAR */
+    .navbar{
+      position:sticky; top:0; z-index:10;
+      background:rgba(5,15,35,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid #1F4E8C;
+      padding:12px; text-align:center;
+    }
+    .navbar a{
+      color:#fff;
+      text-decoration:none;
+      margin:0 14px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      text-shadow:0 0 10px #1F4E8C;
+    }
+
+    /* PAGE TITLE */
+    .hero-title{
+      text-align:center;
+      padding:70px 20px 10px;
+    }
+    .hero-title h1{
+      margin:0;
+      font-size:38px;
+      letter-spacing:3px;
+      color:#fff;
+      text-shadow:
+        0 0 8px #fff,
+        0 0 18px #1F4E8C,
+        0 0 40px #0A1A2F;
+    }
+    .hero-title p{
+      margin:12px 0 0;
+      color:#cfe3ff;
+      letter-spacing:1px;
+    }
+
+    /* 🧊 GLASS CARD */
+    .card{
+      width:85%; max-width:950px;
+      margin:28px auto; padding:26px;
+      background:rgba(10,20,45,.55);
+      backdrop-filter: blur(14px);
+      border-radius:14px;
+      border:1px solid rgba(31,78,140,.65);
+      box-shadow:
+        0 0 25px rgba(31,78,140,.35),
+        inset 0 0 20px rgba(255,255,255,.05);
+    }
+
+    h2{
+      margin-top:0;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      text-shadow:0 0 12px #1F4E8C;
+    }
+
+    /* PROFILE */
+    .profile{
+      display:flex;
+      gap:25px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .profile img{
+      width:180px;
+      height:180px;
+      object-fit:cover;
+      border-radius:50%;
+      border:3px solid #1F4E8C;
+      box-shadow:0 0 22px rgba(31,78,140,.9);
+    }
+
+    .profile-info{
+      flex:1;
+      min-width:220px;
+    }
+
+    .profile-info p{
+      margin:8px 0;
+      letter-spacing:1px;
+      color:#dbe8ff;
+    }
+
+    /* LIST */
+    ul{
+      list-style:none;
+      padding-left:0;
+      margin:0;
+    }
+
+    ul li{
+      padding:8px 0;
+      border-bottom:1px solid rgba(31,78,140,.4);
+      letter-spacing:1.5px;
+      color:#dbe8ff;
+    }
+
+    /* BACK BUTTON */
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid #1F4E8C;
+      color:#fff;
+      text-decoration:none;
+      letter-spacing:2px;
+      box-shadow:0 0 14px rgba(31,78,140,.7);
+      background:rgba(2,8,20,.6);
+      transition:.25s;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#1F4E8C;
+    }
+
+    a.link{
+      color:#9fc7ff;
+      text-decoration:none;
+    }
+    a.link:hover{
+      text-decoration:underline;
+    }
+
+    footer{
+      text-align:center;
+      padding:22px;
+      letter-spacing:2px;
+      color:#9fc7ff;
+    }
+
+    @media(max-width:768px){
+      .card{width:92%}
+      .profile{justify-content:center}
+      .profile-info{text-align:center}
+      .hero-title h1{font-size:26px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO + OVERLAYS -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="index.html#projects">Projects</a>
+  </div>
+
+  <!-- TITLE -->
+  <div class="hero-title">
+    <h1>ABOUT ME</h1>
+    <p>AI/ML • Data Science • Full-Stack Projects</p>
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="card">
+    <h2>Sanjana Kumari</h2>
+
+    <div class="profile">
+      <img src="myphoto.jpg" alt="Sanjana Photo">
+
+      <div class="profile-info">
+        <p><b>Role:</b> B.E. CSE (AI & ML) Undergraduate</p>
+        <p><b>Focus:</b> ML Projects • Data Science • Web Applications</p>
+        <p><b>Goal:</b> Build impactful AI-powered solutions</p>
+
+        <a class="btn" href="index.html">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h2>Professional Summary</h2>
+    <p style="letter-spacing:1px;color:#dbe8ff;line-height:1.6">
+      Results-driven <b>B.E. Computer Science (AIML)</b> undergraduate with hands-on experience in building
+      <b>ML-powered</b> and <b>full-stack web applications</b>. Passionate about data-driven problem solving,
+      AI development, and emerging technologies.
+    </p>
+  </div>
+
+  <!-- QUICK INFO -->
+  <div class="card">
+    <h2>Highlights</h2>
+    <ul>
+      <li>✔ Strong foundation in Machine Learning & Data Science</li>
+      <li>✔ Python-focused developer with project experience</li>
+      <li>✔ Interested in full-stack + AI-powered applications</li>
+      <li>✔ Actively improving skills through certifications</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT (UPDATED ORIGINAL DETAILS ✅) -->
+  <div class="card">
+    <h2>Contact</h2>
+    <ul>
+      <li>📩 Email:
+        <a class="link" href="mailto:akashkumargiri2424@gmail.com">
+          akashkumargiri2424@gmail.com
+        </a>
+      </li>
+
+      <li>🔗 LinkedIn:
+        <a class="link" href="https://www.linkedin.com/in/sanjana-kumari-546237342/" target="_blank">
+          sanjana-kumari-546237342
+        </a>
+      </li>
+
+      <li>💻 GitHub:
+        <a class="link" href="https://github.com/s5-ux" target="_blank">
+          github.com/s5-ux
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <footer>© 2026 SANJANA KUMARI | AI GAMING PORTFOLIO</footer>
+
+</body>
+</html>
